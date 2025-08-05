@@ -60,13 +60,9 @@ const Signup = () => {
     }
   };
 
-  // Modified handleGoogleSignup to show a toast message
   const handleGoogleSignup = () => {
-    toast({
-      title: "Coming Soon",
-      description: "Google signup functionality will be available soon!",
-    });
-    console.log('Google signup clicked - Coming Soon toast displayed');
+    // TODO: Implement Google signup logic
+    console.log('Google signup clicked');
   };
 
   return (
@@ -128,8 +124,8 @@ const Signup = () => {
                 disabled={isLoading}
               />
             </div>
-            <Button
-              type="submit"
+            <Button 
+              type="submit" 
               className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600"
               disabled={isLoading}
             >
@@ -157,7 +153,7 @@ const Signup = () => {
             variant="outline"
             type="button"
             className="w-full"
-            onClick={handleGoogleSignup} // This will now trigger the toast
+            onClick={handleGoogleSignup}
             disabled={isLoading}
           >
             <FcGoogle className="mr-2 h-5 w-5" />
@@ -177,4 +173,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signup; 
