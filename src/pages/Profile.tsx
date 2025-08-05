@@ -175,21 +175,7 @@ const Profile = () => {
             ))}
           </div>
         </div>
-        {/* Liked Songs & Recently Played Buttons (after stats) */}
-        <div className="flex gap-4 justify-center mb-8">
-          <Button
-            className="bg-primary text-white hover:bg-primary/80 px-6 py-2 rounded-full shadow"
-            onClick={() => navigate('/library')}
-          >
-            Liked Songs
-          </Button>
-          <Button
-            className="bg-secondary text-white hover:bg-secondary/80 px-6 py-2 rounded-full shadow"
-            onClick={() => navigate('/recent')}
-          >
-            Recently Played
-          </Button>
-        </div>
+       
         {/* Settings Section (below profile header and buttons) */}
         <div className="bg-white/5 rounded-lg p-6">
           <h2 className="text-2xl font-bold mb-6">Settings</h2>
