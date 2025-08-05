@@ -47,9 +47,13 @@ const Login = () => {
     }
   };
 
+  // Modified handleGoogleLogin to show a toast message
   const handleGoogleLogin = () => {
-    // TODO: Implement Google login logic
-    console.log('Google login clicked');
+    toast({
+      title: "Coming Soon",
+      description: "Google login functionality will be available soon!",
+    });
+    console.log('Google login clicked - Coming Soon toast displayed');
   };
 
   return (
@@ -88,8 +92,8 @@ const Login = () => {
                 disabled={isLoading}
               />
             </div>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600"
               disabled={isLoading}
             >
@@ -117,7 +121,7 @@ const Login = () => {
             variant="outline"
             type="button"
             className="w-full"
-            onClick={handleGoogleLogin}
+            onClick={handleGoogleLogin} // This will now trigger the toast
             disabled={isLoading}
           >
             <FcGoogle className="mr-2 h-5 w-5" />
@@ -140,4 +144,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;
