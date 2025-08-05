@@ -106,9 +106,9 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       try {
         const [{ likedSongs }, recentlyPlayedRes] = await Promise.all([
           authApi.getLikedSongs(token),
-          authApi.getRecentlyPlayed(token)
-        ]);   
-        console.log(recentlyPlayedRes);   
+          api.getRecentlyPlayed(token)
+        ]);
+        console.log(recentlyPlayedRes);
         
         const likedIds = new Set(likedSongs.map(song => song.id));
         setLikedTracks(likedIds);
@@ -375,11 +375,10 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const getRecentlyPlayed = async () => {
     const token = localStorage.getItem(TOKEN_KEY);
     if (!token) return;
-
     try {
-      const response = await api.getRecentTracks(20);
-      if (response.recentlyPlayed) {
-        setRecentlyPlayed(response.recentlyPlayed.map(item => item.track));
+      const recentlyPlayedRes = await api.getRecentlyPlayed(token);
+      if (recentlyPlayedRes.recentlyPlayed) {
+        setRecentlyPlayed(recentlyPlayedRes.recentlyPlayed.map(item => item.track));
       }
     } catch (error) {
       console.error('Error fetching recently played:', error);
