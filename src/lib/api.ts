@@ -1,5 +1,6 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 const JIOSAAVN_API_URL = 'https://saavn.dev/api';
+const RECENTLY_PLAYED_API_URL = import.meta.env.VITE_RECENTLY_PLAYED_API_URL;
 
 export const api = {
   // Search
@@ -92,6 +93,13 @@ export const api = {
   jiosaavnSongSearch: async (query: string, page: number = 0, limit: number = 100) => {
     const url = `${JIOSAAVN_API_URL}/search/songs?query=${encodeURIComponent(query)}&page=${page}&limit=${limit}`;
     const response = await fetch(url);
+    return response.json();
+  },
+
+  getRecentlyPlayed: async (token: string) => {
+    const response = await fetch(`${RECENTLY_PLAYED_API_URL}/`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
     return response.json();
   },
 };
