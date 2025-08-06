@@ -177,7 +177,7 @@ const Search = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6 md:p-8 space-y-8 max-w-5xl mx-auto animate-fade-in">
+    <div className="w-full p-4 sm:p-6 md:p-8 space-y-8 max-w-5xl mx-auto animate-fade-in pb-32">
       <div className="space-y-6">
         <h1 className="text-2xl sm:text-4xl font-bold gradient-text">Search</h1>
         <div className="relative">
