@@ -81,7 +81,7 @@ const Home = () => {
   );
 
   return (
-    <div className="p-4 md:p-6 space-y-8 md:space-y-12 animate-fade-in max-w-[1800px] mx-auto">
+    <div className="w-full p-4 md:p-6 space-y-8 md:space-y-12 animate-fade-in max-w-[1800px] mx-auto pb-32">
       <div className="flex flex-col items-center mb-12 text-center">
         <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-2">Welcome to EchoVibe</h1>
         <p className="text-gray-400">Your personal music sanctuary</p>
