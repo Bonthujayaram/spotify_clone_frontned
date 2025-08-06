@@ -28,6 +28,7 @@ const BottomPlayer = () => {
     isRepeating,
     toggleShuffle,
     toggleRepeat,
+    isMainPlayerOpen
   } = usePlayer();
   const { toast } = useToast();
   
@@ -116,7 +117,7 @@ const BottomPlayer = () => {
     });
   };
 
-  if (!currentTrack) return null;
+  if (!currentTrack || isMainPlayerOpen) return null;
 
   const progress = duration ? (currentTime / duration) * 100 : 0;
   const VolumeIcon = volume === 0 ? VolumeX : volume < 50 ? Volume1 : Volume2;
