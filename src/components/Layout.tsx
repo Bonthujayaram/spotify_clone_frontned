@@ -4,7 +4,8 @@ import BottomPlayer from './BottomPlayer';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import MobileNavBar from "./MobileNavBar";
+import MobileNavBar from "./ui/MobileNavBar";
+
 // Removed import MobileTopNavBar
 
 const Layout = () => {
