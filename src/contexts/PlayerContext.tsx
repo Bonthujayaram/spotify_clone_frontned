@@ -46,6 +46,8 @@ interface PlayerContextType {
   isRepeating: boolean;
   toggleShuffle: () => void;
   toggleRepeat: () => void;
+  isMainPlayerOpen: boolean;
+  setMainPlayerOpen: (open: boolean) => void;
 }
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
@@ -94,6 +96,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [recentlyPlayed, setRecentlyPlayed] = useState<Track[]>([]);
   const [isShuffling, setIsShuffling] = useState(false);
   const [isRepeating, setIsRepeating] = useState(false);
+  const [isMainPlayerOpen, setMainPlayerOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
 
@@ -406,6 +409,8 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     isRepeating,
     toggleShuffle,
     toggleRepeat,
+    isMainPlayerOpen,
+    setMainPlayerOpen,
   };
 
   return (
