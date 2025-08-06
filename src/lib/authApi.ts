@@ -286,6 +286,22 @@ export const authApi = {
     }
   },
 
+  updatePlaylist: async (token: string, playlistId: string, data: { name: string; description?: string }): Promise<PlaylistResponse> => {
+    const response = await fetch(`${AUTH_API_URL}/playlists/${playlistId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to update playlist');
+    }
+    return response.json();
+  },
+
   // Follow endpoints
   followUser: async (token: string, userId: string, artistData?: ExternalArtist): Promise<FollowResponse> => {
     const isAudiusArtist = userId.length < 24; // MongoDB IDs are 24 chars
