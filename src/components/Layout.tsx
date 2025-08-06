@@ -4,6 +4,8 @@ import BottomPlayer from './BottomPlayer';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import MobileNavBar from "./MobileNavBar";
+// Removed import MobileTopNavBar
 
 const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,19 +13,11 @@ const Layout = () => {
 
   return (
     <div className="h-screen flex flex-col bg-[#121212]">
-      {isMobile && (
-        <div className="h-16 flex items-center px-4 bg-black/40 backdrop-blur-xl border-b border-white/10">
-          <button
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="text-white p-2 hover:bg-white/10 rounded-lg"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
-        </div>
-      )}
-      <div className="flex-1 flex overflow-hidden">
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-        <main className="flex-1 overflow-y-auto bg-gradient-to-b from-[#121212] to-[#121212] relative">
+      {/* Mobile nav bar at the top only for mobile */}
+      {isMobile && <MobileNavBar />}
+      <div className={`flex-1 flex overflow-hidden ${isMobile ? 'pt-16' : ''}`}>
+        {!isMobile && <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />}
+        <main className={`flex-1 overflow-y-auto bg-gradient-to-b from-[#121212] to-[#121212] relative ${isMobile ? 'pb-32' : ''}`}>
           <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)]" />
           <div className="relative z-10 h-full">
             <Outlet />
