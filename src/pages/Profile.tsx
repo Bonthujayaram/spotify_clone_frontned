@@ -79,7 +79,7 @@ const Profile = () => {
   };
 
   // Handle settings change
-  const handleSettingChange = (setting, value) => {
+  const handleSettingChange = (setting: string, value: boolean) => {
     setSettings(prev => ({ ...prev, [setting]: value }));
     toast({
       title: "Settings Updated",
@@ -113,7 +113,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="p-6 space-y-8 animate-fade-in">
+    <div className="w-full p-6 space-y-8 animate-fade-in pb-32">
       <div className="max-w-4xl mx-auto">
         {/* Profile Header */}
         <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl p-8 text-white mb-8">
@@ -175,8 +175,8 @@ const Profile = () => {
             ))}
           </div>
         </div>
-        
-        {/* Settings Section */}
+       
+        {/* Settings Section (below profile header and buttons) */}
         <div className="bg-white/5 rounded-lg p-6">
           <h2 className="text-2xl font-bold mb-6">Settings</h2>
           <div className="space-y-6">
@@ -197,25 +197,23 @@ const Profile = () => {
               />
             </div>
             {isEditing && (
-              // Added flex-col for small screens, and md:flex-row for medium screens and above
-              // Also added w-full to the Input components
-              <div className="space-y-4 md:space-y-0 md:flex md:gap-4"> {/* Changed this line */}
-                <div className="flex-1"> {/* Added flex-1 to make div take available space */}
+              <div className="space-y-4">
+                <div>
                   <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
                     value={profile.name}
                     onChange={(e) => setProfile(prev => ({ ...prev, name: e.target.value }))}
-                    className="bg-white/10 border-white/20 w-full" // Added w-full
+                    className="bg-white/10 border-white/20"
                   />
                 </div>
-                <div className="flex-1"> {/* Added flex-1 */}
+                <div>
                   <Label htmlFor="avatar">Profile Picture URL</Label>
                   <Input
                     id="avatar"
                     value={profile.avatar}
                     onChange={(e) => setProfile(prev => ({ ...prev, avatar: e.target.value }))}
-                    className="bg-white/10 border-white/20 w-full" // Added w-full
+                    className="bg-white/10 border-white/20"
                   />
                 </div>
               </div>
